@@ -19,7 +19,7 @@ public class DigestUtil {
    * @param text text you want to digest
    * @return digested text
    */
-  public static String md5(String text){
+  public static String md5Hex(String text){
     return digest(text,ALGORITHM_MD5);
   }
 
@@ -28,7 +28,7 @@ public class DigestUtil {
    * @param text text you want to digest
    * @return digested text
    */
-  public static String sha1(String text){
+  public static String sha1Hex(String text){
     return digest(text,ALGORITHM_SHA1);
   }
 
