@@ -6,8 +6,8 @@ import java.math.BigDecimal;
  * @author xxf
  * @date 16/4/3
  */
-public class NumberUtil{
-  private NumberUtil(){}
+public class NumberUtils {
+  private NumberUtils(){}
 
   /**
    * convert a number to string by discard

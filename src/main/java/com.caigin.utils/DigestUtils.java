@@ -7,8 +7,8 @@ import java.security.NoSuchAlgorithmException;
  * @author xxf
  * @date 16/4/3
  */
-public class DigestUtil {
-  private DigestUtil(){}
+public class DigestUtils {
+  private DigestUtils(){}
 
   public static final String ALGORITHM_MD5 = "MD5";
   public static final String ALGORITHM_SHA = "SHA";
