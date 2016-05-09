@@ -1,7 +1,6 @@
 package com.caigin.utils;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
 
 /**
  * @author xxf
@@ -30,7 +29,7 @@ public class MathUtils {
     return bigDecimal1.multiply(bigDecimal2).toPlainString();
   }
 
-  public static int divideToIntegralValue(String s1,String s2){
+  public static int divideToIntegralValue(String s1, String s2){
     BigDecimal bigDecimal1 = new BigDecimal(s1);
     BigDecimal bigDecimal2 = new BigDecimal(s2);
     return bigDecimal1.divideToIntegralValue(bigDecimal2).intValueExact();
@@ -52,30 +51,120 @@ public class MathUtils {
     return bigDecimal1.remainder(bigDecimal2).toPlainString();
   }
 
-  public static int compareTo(String s1,String s2){
-    BigDecimal bigDecimal1 = new BigDecimal(s1);
-    BigDecimal bigDecimal2 = new BigDecimal(s2);
-    return bigDecimal1.compareTo(bigDecimal2);
+
+  /**
+   * greater than
+   *
+   * @param left
+   * @param right
+   * @return true if left > right
+   */
+  public static boolean gt(BigDecimal left,BigDecimal right){
+    return left.compareTo(right) > 0 ;
   }
 
-  public static void main(String[] args) {
-    System.out.println(divideToIntegralValue("1", "3"));
-    System.out.println(1.0/3);
-
-    System.out.println(subtract("0.21","0.11"));
-    System.out.println(0.21-0.11);
-
-    System.out.println(subtract(multiply("0.011","10"),"0.1"));
-    System.out.println(0.011*10-0.1);
-
-    System.out.println(Arrays.toString(divideAndRemainder("10.00", "3")));
-
-    System.out.println(remainder("10.10","3"));
-
-    System.out.println(divideToIntegralValue("197846.23","1000"));
-
-    System.out.println(compareTo("1.0","1"));
+  /**
+   * greater than
+   *
+   * @param left
+   * @param right
+   * @return true if left > right
+   * @throws NumberFormatException if the string is not a number
+   */
+  public static boolean gt(String left,String right){
+    return gt(new BigDecimal(left),new BigDecimal(right));
   }
 
+  /**
+   * less than
+   *
+   * @param left
+   * @param right
+   * @return true if left < right
+   */
+  public static boolean lt(BigDecimal left,BigDecimal right) {
+    return left.compareTo(right) < 0 ;
+  }
+
+  /**
+   * less than
+   *
+   * @param left
+   * @param right
+   * @return true if left < right
+   * @throws NumberFormatException if the string is not a number
+   */
+  public static boolean lt(String left,String right) {
+    return lt(new BigDecimal(left),new BigDecimal(right));
+  }
+
+  /**
+   * less than or equal
+   *
+   * @param left
+   * @param right
+   * @return true if left <= right
+   */
+  public static boolean le(BigDecimal left,BigDecimal right) {
+    return !gt(left,right);
+  }
+
+  /**
+   * less than or equal
+   *
+   * @param left
+   * @param right
+   * @return true if left <= right
+   * @throws NumberFormatException if the string is not a number
+   */
+  public static boolean le(String left,String right) {
+    return le(new BigDecimal(left),new BigDecimal(right));
+  }
+
+  /**
+   * greater than or equal
+   *
+   * @param left
+   * @param right
+   * @return true if left >= right
+   */
+  public static boolean ge(BigDecimal left,BigDecimal right) {
+    return !lt(left,right);
+  }
+
+  /**
+   * greater than or equal
+   *
+   * @param left
+   * @param right
+   * @return true if left >= right
+   * @throws NumberFormatException if the string is not a number
+   */
+  public static boolean ge(String left,String right) {
+    return ge(new BigDecimal(left), new BigDecimal(right));
+  }
+
+  /**
+   * equal
+   *
+   * @param left
+   * @param right
+   * @return true if left equal right in math
+   */
+  public static boolean eq(BigDecimal left,BigDecimal right) {
+    return left.compareTo(right) == 0;
+  }
+
+  /**
+   * equal
+   *
+   * @param left
+   * @param right
+   * @return true if left equal right in math
+   * @throws NumberFormatException if the string is not a number
+   */
+  public static boolean eq(String left,String right) {
+    return eq(new BigDecimal(left),new BigDecimal(right));
+  }
 
 }
